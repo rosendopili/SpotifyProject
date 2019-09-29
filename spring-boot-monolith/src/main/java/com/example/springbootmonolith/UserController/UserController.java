@@ -16,12 +16,21 @@ public class UserController {
     }
 
 
-    @GetMapping("/test")
-    public UserResponse Test(@RequestBody UserResponse inputPayload) {
-        UserResponse response = new UserResponse();
-        response.setUserName(inputPayload.getUserName());
-        response.setResponse("Hello " + inputPayload.getUserName());
+    @GetMapping("/get")
+    public SampleResponse get(@RequestParam(value = "name",
+            defaultValue = "Robot") String name) {
+        SampleResponse response = new SampleResponse();
+        response.setId((long) 1);
+        response.setResponse("Your name is "+ name);
         return response;
+    }
+
+    @PostMapping("/post")
+    public UserResponse post(@RequestBody UserResponse inputPayLoad) {
+        UserResponse postResponse = new UserResponse();
+        postResponse.setId(inputPayLoad.getId());
+        postResponse.setResponse("Hello " + inputPayLoad.getId());
+        return postResponse;
     }
 
 }

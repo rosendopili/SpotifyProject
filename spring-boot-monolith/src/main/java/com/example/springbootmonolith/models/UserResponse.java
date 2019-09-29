@@ -1,21 +1,19 @@
 package com.example.springbootmonolith.models;
-import com.example.springbootmonolith.models.User;
-import com.example.springbootmonolith.UserController.UserController;
 
 public class UserResponse {
-    private String userName;
+    private Long id;
     private String response;
 
-    public String getUserName(){
-        return userName;
+    public Long getId(){
+        return id;
     }
 
     public String getResponse(){
         return response;
     }
 
-    public void setUserName(String userName){
-        this.userName = userName;
+    public void setId(Long id){
+        this.id = id;
     }
 
     public void setResponse(String response){
