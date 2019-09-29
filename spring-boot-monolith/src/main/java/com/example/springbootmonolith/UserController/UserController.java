@@ -1,11 +1,21 @@
 package com.example.springbootmonolith.UserController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.springbootmonolith.models.UserResponse;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
     @GetMapping("/hello")
-    public String helloWorld(){
+    public String helloWorld() {
         return "Hello World!!";
     }
+
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public UserResponse Test(@RequestBody UserResponse inputPayload) {
+        UserResponse response = new UserResponse();
+        response.setUserName(inputPayload.getUserName());
+        response.setResponse("Hello " + inputPayload.getUserName());
+        return response;
+    }
+
 }
