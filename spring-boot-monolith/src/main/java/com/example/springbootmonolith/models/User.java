@@ -10,47 +10,56 @@ import java.util.List;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-@Entity
-@Table(name = "users")
 public class User {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
-    private String userName;
+    private String username;
 
     @Column
-    private String passWord;
+    private String password;
 
-    @Column
-    private String email;
 
-    public String getUserName(){
-        return userName;
-    }
+    private UserProfile userProfile;
 
-    public String getPassWord(){
-        return passWord;
-    }
+    private UserRole userRole;
 
-    public String getEmail(){
-        return email;
-    }
-
-    public void setUserName(String userName){
-        this.userName = userName;
-    }
-
-    public void setPassWord(String passWord){
-        this.passWord = passWord;
-    }
-
-    public void setEmail(String email){
-        this.email= email;
-    }
 
     public User() {}
+
+
+    public UserRole getUserRole() { return userRole; }
+
+    public void setUserRole(UserRole userRole) { this.userRole = userRole; }
+
+    public UserProfile getUserProfile() { return userProfile; }
+
+    public void setUserProfile(UserProfile userProfile) { this.userProfile = userProfile; }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
