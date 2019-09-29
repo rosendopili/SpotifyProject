@@ -1,5 +1,6 @@
 package com.example.springbootmonolith.models;
 import com.example.springbootmonolith.models.User;
+import com.example.springbootmonolith.UserController.UserController;
 
 public class UserResponse {
     private String userName;
@@ -7,6 +8,10 @@ public class UserResponse {
 
     public String getUserName(){
         return userName;
+    }
+
+    public String getResponse(){
+        return response;
     }
 
     public void setUserName(String userName){
