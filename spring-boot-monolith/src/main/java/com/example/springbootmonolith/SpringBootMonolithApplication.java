@@ -9,5 +9,4 @@ public class SpringBootMonolithApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootMonolithApplication.class, args);
 	}
-
 }

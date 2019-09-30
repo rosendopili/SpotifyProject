@@ -3,17 +3,15 @@ package com.example.springbootmonolith.service;
 import com.example.springbootmonolith.models.User;
 import com.example.springbootmonolith.models.UserRole;
 import com.example.springbootmonolith.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     UserRepository userRepository;
 
-    @Autowired
     UserRoleService userRoleService;
 
     @Override

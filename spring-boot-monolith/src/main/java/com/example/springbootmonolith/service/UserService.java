@@ -2,6 +2,7 @@ package com.example.springbootmonolith.service;
 
 import com.example.springbootmonolith.models.User;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 
 public interface UserService {
 
