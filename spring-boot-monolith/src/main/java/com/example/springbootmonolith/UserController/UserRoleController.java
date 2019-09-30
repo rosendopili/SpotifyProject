@@ -12,9 +12,9 @@ public class UserRoleController {
     @Autowired
     UserRoleService roleService;
 
-    @GetMapping("/{rolename}")
-    public UserRole getRole(@PathVariable String rolename) {
-        return roleService.getRole(rolename);
+    @GetMapping("/{roleName}")
+    public UserRole getRole(@PathVariable String roleName) {
+        return roleService.getRole(roleName);
     }
 
     @PostMapping
