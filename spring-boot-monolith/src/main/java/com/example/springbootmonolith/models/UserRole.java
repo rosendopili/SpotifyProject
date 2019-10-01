@@ -23,7 +23,6 @@ public class UserRole {
     @Column(unique = true)
     private String name;
 
-
     @OneToMany(mappedBy = "userRole",
             cascade = CascadeType.ALL)
     private List<User> users;

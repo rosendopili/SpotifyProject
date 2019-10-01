@@ -18,6 +18,12 @@ public class Song {
     @Column
     private double length;
 
+    @Column
+    private String genre;
+
+    @Column
+    private String artist;
+
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,
                     CascadeType.MERGE, CascadeType.REFRESH})
@@ -26,7 +32,7 @@ public class Song {
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> users;
 
-    public Song() { }
+    public Song(){}
 
     public List<User> getUsers(){ return users; }
 
@@ -55,4 +61,12 @@ public class Song {
     public void setLength(double length) {
         this.length = length;
     }
+
+    public String getGenre(){ return genre;}
+
+    public void setGenre(String genre) {this.genre = genre;}
+
+    public String getArtist(){return artist;}
+
+    public void setArtist(String artist){this.artist = artist;}
 }

@@ -15,17 +15,23 @@ public class UserProfileControllerTest {
     public void initUserProfileController(){
         userProfileController = new UserProfileController();
         userProfileController.setUserProfileService(new UserProfileServiceStub());
-
     }
-
+//
     @Test
-    public void createUserProfile_SavesUserProfile_Success() throws Exception{
+    public void createUserProfile_SavesUserProfile_Success() throws Exception {
         UserProfile userProfile = new UserProfile();
         userProfile.setEmail("test@gmail.com");
 
-        UserProfile newProfile = userProfileController.createUserProfile("Testuser", userProfile);
+        UserProfile newProfile = userProfileController.createUserProfile("TestUser", userProfile);
 
         Assert.assertNotNull(newProfile);
         Assert.assertEquals(newProfile.getEmail(), userProfile.getEmail());
     }
+
+//    @Test
+//    public void getUserProfile_RetrievesProfileByUsername_Success(){
+//        UserProfile userProfile = new UserProfile();
+//        userProfile.setUser();
+//        UserProfile newProfile = userProfileController.createUserProfile("TestUser", userProfile);
+//    }
 }

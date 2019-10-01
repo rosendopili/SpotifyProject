@@ -14,7 +14,7 @@ public interface UserService extends UserDetailsService {
 
     public User login(String username, String password);
 
-    public HttpStatus deleteById(Long userId);
+    public HttpStatus deleteById(int userId);
 
     public User addSong(String title, int songId);
 

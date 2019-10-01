@@ -82,6 +82,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public HttpStatus deleteById(int userId) {
+        return null;
+    }
+
+    @Override
     public String login(User user){
         User newUser = userRepository.findByUsername(user.getUsername());
 //      Code edited to not use default bCrypt for password.
@@ -101,7 +106,6 @@ public class UserServiceImpl implements UserService {
 //        return songRepository.save(title);
 //    }
 
-    @Override
     public HttpStatus deleteById(Long userId){
         userRepository.deleteById(userId);
         return HttpStatus.OK;

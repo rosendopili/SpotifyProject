@@ -1,6 +1,5 @@
 package com.example.springbootmonolith.UserController;
 
-
 import com.example.springbootmonolith.models.JwtResponse;
 import com.example.springbootmonolith.models.User;
 import com.example.springbootmonolith.service.UserService;
@@ -38,10 +37,9 @@ public class UserController {
     }
 
     @DeleteMapping("/user/{userId}")
-    public HttpStatus deleteUserById(@PathVariable Long userId) {
+    public HttpStatus deleteUserById(@PathVariable int userId) {
         return userService.deleteById(userId);
     }
-
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
