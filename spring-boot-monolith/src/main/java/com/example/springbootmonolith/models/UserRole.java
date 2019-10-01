@@ -11,7 +11,8 @@ import java.util.List;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-
+@Entity
+@Table(name = "user_role")
 public class UserRole {
 
     @Id
@@ -22,6 +23,9 @@ public class UserRole {
     @Column(unique = true)
     private String name;
 
+
+    @OneToMany(mappedBy = "userRole",
+            cascade = CascadeType.ALL)
     private List<User> users;
 
     public UserRole() {}

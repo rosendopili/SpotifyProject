@@ -1,11 +1,12 @@
 package com.example.springbootmonolith.models;
 
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user_profile")
 public class UserProfile {
 
     @Id
@@ -21,6 +22,11 @@ public class UserProfile {
 
     @Column
     private String address;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "userProfile",
+            cascade = {CascadeType.DETACH, CascadeType.MERGE,
+                    CascadeType.PERSIST, CascadeType.REFRESH})
 
     private User user;
 
