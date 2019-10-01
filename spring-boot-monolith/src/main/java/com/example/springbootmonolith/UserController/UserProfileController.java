@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/profile")
 public class UserProfileController {
 
-    @Autowired
     UserProfileService userProfileService;
+
+    public void setUserProfileService(UserProfileService userProfileService){
+        this.userProfileService = userProfileService;
+    }
 
     @GetMapping("/{username}")
     public UserProfile getUserProfile(@PathVariable String username) {

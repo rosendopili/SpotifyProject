@@ -16,7 +16,7 @@ public class Song {
     private String title;
 
     @Column
-    private int length;
+    private double length;
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,
@@ -48,11 +48,11 @@ public class Song {
         this.title = title;
     }
 
-    public int getLength() {
+    public double getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(double length) {
         this.length = length;
     }
 }

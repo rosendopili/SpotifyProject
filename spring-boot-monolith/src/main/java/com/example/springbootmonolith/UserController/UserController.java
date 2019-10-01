@@ -21,12 +21,13 @@ public class UserController {
     public Iterable<User> listUsers(){
         return userService.listUsers();
     }
+
     @PostMapping("/signup")
     public String createUser(@RequestBody User newUser) {
         return userService.createUser(newUser);
     }
 
-    @GetMapping("/login/{username}/{pw}")
+    @GetMapping("/login/{username}/{password}")
     public User login(@PathVariable String username, @PathVariable String password){
         return userService.login(username, password);
     }
