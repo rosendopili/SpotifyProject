@@ -26,7 +26,7 @@ public class UserController {
         return userService.createUser(newUser);
     }
 
-    @GetMapping("/login/{username}/{password}")
+    @GetMapping("/login/{username}/{pw}")
     public User login(@PathVariable String username, @PathVariable String password){
         return userService.login(username, password);
     }
