@@ -41,7 +41,6 @@ public class UserServiceImpl implements UserService {
 
         if(user==null)
             throw new UsernameNotFoundException("User null");
-        // Code edited to not include bCrypt
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
                 true, true, true, true, getGrantedAuthorities(user));
     }
@@ -81,32 +80,31 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    @Override
-    public HttpStatus deleteById(int userId) {
-        return null;
-    }
 
     @Override
     public String login(User user){
         User newUser = userRepository.findByUsername(user.getUsername());
-//      Code edited to not use default bCrypt for password.
         if(newUser != null && user.getPassword().equals(newUser.getPassword())){
             UserDetails userDetails = loadUserByUsername(newUser.getUsername());
             return jwtUtil.generateToken(userDetails);
         }
         return null;
     }
-
+//
+//    public User getUser(username){
+//
+//    }
+//
 //    @Override
-//    public User addSong(String title, Long songId) {
-//        Song song = songRepository.findById(songId).get();
-//        Title title = getTitle(title);
+//    public User addSong(String title, int songId) {
+//        Song song = (Song) songRepository.findById(songId).get();
+//        title = getTitle(title);
 //        title.addSong(song);
 //
 //        return songRepository.save(title);
 //    }
 
-    public HttpStatus deleteById(Long userId){
+    public HttpStatus deleteById(int userId){
         userRepository.deleteById(userId);
         return HttpStatus.OK;
     }

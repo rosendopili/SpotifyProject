@@ -1,8 +1,8 @@
 package com.example.springbootmonolith.controller;
 
-import com.example.springbootmonolith.models.User;
 import com.example.springbootmonolith.UserController.UserController;
 import com.example.springbootmonolith.config.JwtUtil;
+import com.example.springbootmonolith.models.User;
 import com.example.springbootmonolith.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,6 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class UserControllerTest {
 
     /**Main entry point for server-side Spring MVC test support.**/
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -90,7 +91,7 @@ public class UserControllerTest {
 //        RequestBuilder requestBuilder = MockMvcRequestBuilders
 //                .delete("/user/1");
 //
-//        when(userService.deleteById(anyLong())).thenReturn(HttpStatus.OK);
+//        when(userService.deleteById(int())).thenReturn(HttpStatus.OK);
 //
 //        mockMvc.perform(requestBuilder)
 //                .andExpect(status().isOk());

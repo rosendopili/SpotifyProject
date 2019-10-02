@@ -22,8 +22,8 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String createUser(@RequestBody User newUser) {
-        return userService.createUser(newUser);
+    public ResponseEntity<?> createUser(@RequestBody User newUser) {
+        return ResponseEntity.ok(new JwtResponse(userService.createUser(newUser)));
     }
 
     @GetMapping("/login/{username}/{password}")
