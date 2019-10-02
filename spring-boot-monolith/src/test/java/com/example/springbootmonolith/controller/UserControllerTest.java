@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class UserControllerTest {
 
     /**Main entry point for server-side Spring MVC test support.**/
-
+    //inputting mock MVC for UserController testing//
     @Autowired
     private MockMvc mockMvc;
 

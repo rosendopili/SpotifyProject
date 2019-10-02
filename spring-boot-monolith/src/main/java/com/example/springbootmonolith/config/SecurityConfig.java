@@ -42,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception{
         // Uses a default bCrypt password encoder. Not defined by your jwt.secret token.
+        // this is only for demo purposes.  do not use in actual project as it threatens the security of your app.
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         auth.inMemoryAuthentication().withUser("test").password(encoder.encode("test")).roles("ADMIN");
         auth.inMemoryAuthentication().withUser("dba").password(encoder.encode("dba")).roles("DBA");

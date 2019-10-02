@@ -1,6 +1,5 @@
 package com.example.springbootmonolith.service;
 import com.example.springbootmonolith.config.JwtUtil;
-import com.example.springbootmonolith.models.Song;
 import com.example.springbootmonolith.models.User;
 import com.example.springbootmonolith.models.UserRole;
 import com.example.springbootmonolith.repository.SongRepository;
@@ -72,11 +71,6 @@ public class UserServiceImpl implements UserService {
             UserDetails userDetails = loadUserByUsername(newUser.getUsername());
             return jwtUtil.generateToken(userDetails);
         }
-        return null;
-    }
-
-    @Override
-    public User login(String username, String password) {
         return null;
     }
 

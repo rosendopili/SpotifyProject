@@ -13,8 +13,8 @@ public class UserRoleController {
     UserRoleService roleService;
 
     @GetMapping("/{roleName}")
-    public UserRole getRole(@PathVariable String roleName) {
-        return roleService.getRole(roleName);
+    public UserRole getRole(@PathVariable String name) {
+        return roleService.getRole(name);
     }
 
     @PostMapping

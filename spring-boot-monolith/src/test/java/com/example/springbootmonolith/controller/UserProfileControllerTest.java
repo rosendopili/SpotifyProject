@@ -9,6 +9,7 @@ import org.junit.Test;
 
 public class UserProfileControllerTest {
 
+    //testing for UserProfileController methods
     private UserProfileController userProfileController;
 
     @Before
@@ -16,7 +17,7 @@ public class UserProfileControllerTest {
         userProfileController = new UserProfileController();
         userProfileController.setUserProfileService(new UserProfileServiceStub());
     }
-//
+
     @Test
     public void createUserProfile_SavesUserProfile_Success() throws Exception {
         UserProfile userProfile = new UserProfile();
