@@ -4,8 +4,6 @@ An app that mimics spotify
 There are 5 Separate packages within the main project package. 
 
 Within these packages, the project is broken down into 5 major categories.  JWT/Security, User, Song, User Role and User Profile. 
-
-They are broken down as follows: 
   
   CONFIG: 
   
