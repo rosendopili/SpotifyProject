@@ -2,12 +2,13 @@ package com.example.springbootmonolith.config;
 
 import com.example.springbootmonolith.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -20,6 +21,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
+
+    @Bean("encoder")
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService);
@@ -38,14 +44,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
-
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception{
-        // Uses a default bCrypt password encoder. Not defined by your jwt.secret token.
-        // this is only for demo purposes.  do not use in actual project as it threatens the security of your app.
-        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        auth.inMemoryAuthentication().withUser("test").password(encoder.encode("test")).roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("dba").password(encoder.encode("dba")).roles("DBA");
-    }
+//
+//    @Override
+//    public void configure(AuthenticationManagerBuilder auth) throws Exception{
+//        // this is only for demo purposes.  do not use in actual project as it threatens the security of your app.
+//        User.UserBuilder users = User.withDefaultPasswordEncoder();
+//        auth.inMemoryAuthentication().withUser(users.username("test").password("test").roles("ADMIN"));
+//        auth.inMemoryAuthentication().withUser(users.username("dba").password("dba").roles("DBA"));
+//    }
 
 }

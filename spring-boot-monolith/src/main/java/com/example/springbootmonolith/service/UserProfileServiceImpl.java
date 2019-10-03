@@ -4,8 +4,10 @@ import com.example.springbootmonolith.models.User;
 import com.example.springbootmonolith.models.UserProfile;
 import com.example.springbootmonolith.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+@Repository
 @Service
 public class UserProfileServiceImpl implements UserProfileService {
 

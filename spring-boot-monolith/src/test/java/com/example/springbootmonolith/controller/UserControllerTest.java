@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -40,6 +41,7 @@ public class UserControllerTest {
     private JwtUtil jwtUtil;
 
     @Test
+    //testing helloworld method//
     public void helloWorld_ReturnsString_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .get("/hello")
@@ -52,7 +54,7 @@ public class UserControllerTest {
 
     @Test
     public void login_Success() throws Exception{
-
+        //testing log-in success: currently fails//
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/login")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -85,7 +87,7 @@ public class UserControllerTest {
 
         System.out.println(result.getResponse().getContentAsString());
     }
-
+//
 //    @Test
 //    public void addSong_Returns200_Success() throws Exception{
 //        RequestBuilder requestBuilder = MockMvcRequestBuilders

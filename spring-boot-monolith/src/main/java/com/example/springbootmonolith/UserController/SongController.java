@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/songs")
 
-
 public class SongController {
 
     @Autowired
@@ -23,5 +22,4 @@ public class SongController {
     public Iterable<Song> listSongs(){
         return songService.listSongs();
     }
-
 }

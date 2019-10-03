@@ -12,16 +12,10 @@ public class UserProfile {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Column
     private String email;
-
-    @Column
-    private String mobile;
-
-    @Column
-    private String address;
 
     @JsonIgnore
     @OneToOne(mappedBy = "userProfile",
@@ -36,11 +30,11 @@ public class UserProfile {
 
     public void setUser(User user) { this.user = user; }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -50,20 +44,5 @@ public class UserProfile {
         this.email = email;
     }
 
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
 }

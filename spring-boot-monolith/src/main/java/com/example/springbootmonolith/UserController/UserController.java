@@ -5,7 +5,6 @@ import com.example.springbootmonolith.models.User;
 import com.example.springbootmonolith.service.UserService;
 import com.example.springbootmonolith.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,10 +16,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    UserServiceImpl userServiceImpl;
-
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/user/list")
     public Iterable<User> listUsers(){
         return userService.listUsers();
@@ -28,7 +24,7 @@ public class UserController {
 
     /*Internal server error when running tests on signup for postman*/
     @PostMapping("/signup")
-    public ResponseEntity<?> createUser(@RequestBody User newUser) {
+    public ResponseEntity<?> createUser(@RequestBody User newUser){
         return ResponseEntity.ok(new JwtResponse(userService.createUser(newUser)));
     }
 
@@ -51,5 +47,6 @@ public class UserController {
     public String helloWorld() {
         return "Hello World!!";
     }
+
 
 }

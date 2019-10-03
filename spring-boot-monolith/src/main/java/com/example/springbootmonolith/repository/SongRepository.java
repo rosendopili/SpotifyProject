@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SongRepository extends CrudRepository <Song, String> {
+public interface SongRepository extends CrudRepository <Song, Integer> {
 
-    List<Object> findById(int songId);
 }
