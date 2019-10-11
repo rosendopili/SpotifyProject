@@ -1,9 +1,8 @@
-package com.example.springbootmonolith.UserController;
+package com.example.springbootmonolith.Controller;
 
 import com.example.springbootmonolith.models.JwtResponse;
 import com.example.springbootmonolith.models.User;
 import com.example.springbootmonolith.service.UserService;
-import com.example.springbootmonolith.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,8 +28,8 @@ public class UserController {
     }
 
     @PutMapping("/user/{username}/{songId}")
-    public User addSong(@PathVariable String username, @PathVariable int songId){
-        return userService.addSong(username, songId);
+    public User addSong(@PathVariable String title, @PathVariable int songId){
+        return userService.addSong(title, songId);
     }
 
     @DeleteMapping("/user/{userId}")

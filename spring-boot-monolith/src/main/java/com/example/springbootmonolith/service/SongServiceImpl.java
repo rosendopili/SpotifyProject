@@ -18,10 +18,14 @@ public class SongServiceImpl implements SongService {
         return songRepository.save(song);
     }
 
-
     @Override
     public Iterable<Song> listSongs(){
         return songRepository.findAll();
+    }
+
+    @Override
+    public Song findBySongName(int songId){
+        return songRepository.findById(songId).get();
     }
 
 }

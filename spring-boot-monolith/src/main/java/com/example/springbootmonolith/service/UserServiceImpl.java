@@ -91,19 +91,25 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
-
-    @Override
-    public User addSong(String username, int songId) {
-        Song song = (Song) songRepository.findById(songId).get();
-        User user = getUser(username);
-        user.addSong(song);
-
-        return userRepository.save(user);
-    }
+//
+//    @Override
+//    public User addSong(String username, int songId) {
+//        Song song = (Song) songRepository.findById(songId).get();
+//        User user = getUser(username);
+//        user.addSong(song);
+//
+//        return userRepository.save(user);
+//    }
 
     public HttpStatus deleteById(int userId){
         userRepository.deleteById(userId);
         return HttpStatus.OK;
+
+    }
+
+    @Override
+    public User addSong(String title, int songId) {
+        return null;
     }
 
 }

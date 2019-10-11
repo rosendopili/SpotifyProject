@@ -1,4 +1,4 @@
-package com.example.springbootmonolith.UserController;
+package com.example.springbootmonolith.Controller;
 
 import com.example.springbootmonolith.models.UserRole;
 import com.example.springbootmonolith.service.UserRoleService;

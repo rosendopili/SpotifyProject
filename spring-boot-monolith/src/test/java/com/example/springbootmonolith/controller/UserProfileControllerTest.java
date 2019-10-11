@@ -1,7 +1,7 @@
 package com.example.springbootmonolith.controller;
 
 import com.example.springbootmonolith.models.UserProfile;
-import com.example.springbootmonolith.UserController.UserProfileController;
+import com.example.springbootmonolith.Controller.UserProfileController;
 import com.example.springbootmonolith.service.UserProfileServiceStub;
 import org.junit.Assert;
 import org.junit.Before;

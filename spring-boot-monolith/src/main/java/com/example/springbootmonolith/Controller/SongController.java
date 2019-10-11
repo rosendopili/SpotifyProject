@@ -1,7 +1,8 @@
-package com.example.springbootmonolith.UserController;
+package com.example.springbootmonolith.Controller;
 
 import com.example.springbootmonolith.models.Song;
 import com.example.springbootmonolith.service.SongService;
+import com.example.springbootmonolith.service.SongServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,9 @@ public class SongController {
 
     @Autowired
     SongService songService;
+
+    @Autowired
+    SongServiceImpl songServiceImpl;
 
     @PostMapping
     public Song createSongs(@RequestBody Song song){

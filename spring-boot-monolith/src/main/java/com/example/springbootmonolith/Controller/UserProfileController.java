@@ -1,4 +1,4 @@
-package com.example.springbootmonolith.UserController;
+package com.example.springbootmonolith.Controller;
 import com.example.springbootmonolith.models.UserProfile;
 import com.example.springbootmonolith.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
