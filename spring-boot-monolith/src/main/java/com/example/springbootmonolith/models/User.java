@@ -38,8 +38,8 @@ public class User {
             cascade = {CascadeType.DETACH,
                     CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(name = "user_songs",
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = @JoinColumn(name = "song_id"))
+            joinColumns = {@JoinColumn(name = "song_id")},
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<Song> songs;
 
     public User() {}

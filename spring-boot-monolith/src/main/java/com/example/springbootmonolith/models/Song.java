@@ -1,9 +1,16 @@
 package com.example.springbootmonolith.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 
 import java.util.List;
 
+
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 @Entity
 @Table(name = "songs")
 public class Song {
@@ -28,8 +35,8 @@ public class Song {
             cascade = {CascadeType.DETACH,
                     CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(name = "user_songs",
-            joinColumns = {@JoinColumn(name = "song_id")},
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = @JoinColumn(name = "song_id"))
     private List<User> users;
 
     public Song(){}

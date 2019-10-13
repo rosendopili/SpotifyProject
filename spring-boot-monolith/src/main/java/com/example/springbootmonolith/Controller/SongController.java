@@ -14,9 +14,6 @@ public class SongController {
     @Autowired
     SongService songService;
 
-    @Autowired
-    SongServiceImpl songServiceImpl;
-
     @PostMapping
     public Song createSongs(@RequestBody Song song){
         return songService.createSongs(song);

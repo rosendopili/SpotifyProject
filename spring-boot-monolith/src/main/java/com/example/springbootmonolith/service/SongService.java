@@ -10,5 +10,5 @@ public interface SongService {
 
     public Iterable<Song> listSongs();
 
-    public Song findBySongName(int songId);
+    public Song findBySongId(int songId);
 }
